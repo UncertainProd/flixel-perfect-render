@@ -15,7 +15,26 @@ class PlayState extends FlxState
 
 		sprite = new FlxSprite(FlxG.width * 0.5 - 8, FlxG.height * 0.5 - 8);
 		sprite.makeGraphic(16, 16, FlxColor.GREEN);
-		sprite.angularVelocity = 20;
+		sprite.angularVelocity = 40;
 		add(sprite);
+	}
+
+	var move:Bool = true;
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+		if(FlxG.keys.justPressed.M)
+		{
+			move = !move;
+		}
+
+		if(!move)
+		{
+			sprite.angularVelocity = 0;
+		}
+		else
+		{
+			sprite.angularVelocity = 40;
+		}
 	}
 }
